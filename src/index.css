@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  /* colors */
+  --color-chestnut: #a3492f;
+  --color-dark-charcoal: #353132;
+  --color-old-lace: #fff1e6;
+  --color-hooker-green: #457962;
+  --color-dark-slate-gray: #365244;
+  --color-coral-reef: #fc8660;
+  --color-fire-opal: #e65f42;
+
+  /* fonts */
+  --font-aldo: Aldo, sans-serif;
+  --font-poppins: Poppins, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-old-lace font-poppins text-dark-charcoal;
+  }
+}
+
+@utility button {
+  @apply bg-hooker-green hover:bg-dark-slate-gray text-old-lace border-hooker-green cursor-pointer rounded-md border px-4 py-2 transition-colors duration-300 outline-none;
+}
+
+@utility button-disabled {
+  @apply text-old-lace border-hooker-green cursor-not-allowed rounded-md border bg-gray-600 px-4 py-2 transition-colors duration-300 outline-none;
+}
+
+@layer utilities {
+  .expandable-text {
+    height: 4.5rem;
+    overflow: hidden;
+    transition: height 0.8s ease;
+    interpolate-size: allow-keywords;
+  }
+  .expandable-text.expanded {
+    height: auto;
+  }
+}

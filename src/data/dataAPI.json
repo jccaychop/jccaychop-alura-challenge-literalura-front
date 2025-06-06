@@ -1,0 +1,300 @@
+{
+  "status": "SUCCESS",
+  "messages": [
+    {
+      "code": "SUCCESS",
+      "message": "Búsqueda completada."
+    },
+    {
+      "code": "INSERTED",
+      "message": "11 libros insertados."
+    }
+  ],
+  "data": {
+    "inserted": 11,
+    "duplicates": 0,
+    "books": [
+      {
+        "id": 1,
+        "title": "Don Quijote",
+        "summaries": [
+          "\"Don Quijote\" by Miguel de Cervantes Saavedra is a novel written during the early 17th century. The book explores the adventures of an aging hidalgo named Don Quijote, who becomes so enamored with tales of chivalry that he decides to become a knight-errant himself. Accompanied by his loyal squire, Sancho Panza, he embarks on a journey to revive chivalry and fight injustice, leading to a series of humorous and poignant misadventures.   The opening of \"Don Quijote\" introduces the main character, an unnamed hidalgo whose obsession with chivalric novels leads him to lose his sanity. He resolves to become a knight-errant and adopts the name \"Don Quijote de la Mancha.\" Cervantes presents his elaborate preparations, including the repair of old armor and choosing a steed, which he names Rocinante. As he sets off on his quest, he envisions himself as a noble knight destined for greatness, which sets the stage for the series of comical encounters and misinterpretations that define his character throughout the novel. This blend of realism and fantasy is a hallmark of Cervantes' work, making the opening rich with the themes of illusion versus reality and the pursuit of idealism. (This is an automatically generated summary.)"
+        ],
+        "authors": [
+          {
+            "id": 1,
+            "name": "Cervantes Saavedra, Miguel de",
+            "birthYear": 1547,
+            "deathYear": 1616
+          }
+        ],
+        "translators": [],
+        "languages": ["es"],
+        "formats": {
+          "image/jpeg": "https://www.gutenberg.org/cache/epub/2000/pg2000.cover.medium.jpg",
+          "application/epub+zip": "https://www.gutenberg.org/ebooks/2000.epub3.images"
+        },
+        "downloadCount": 16507
+      },
+      {
+        "id": 2,
+        "title": "Don Quijote de la Mancha",
+        "summaries": [
+          "\"Don Quijote de la Mancha\" by Miguel de Cervantes Saavedra is a novel written in the early 17th century. The story unfolds in Spain and follows the misadventures of an aging nobleman, Don Quijote, whose passion for chivalric romances drives him to become a self-styled knight-errant. Determined to revive the lost values of knighthood, he sets out to perform grand deeds, often misunderstanding the world around him in humorous and tragic ways.  At the start of the novel, the readers are introduced to Don Quijote, who has become so infatuated with tales of chivalry that he has lost his sanity. He decides to embark on a quest to become a knight-errant, gathering mismatched armor and renaming himself. Throughout the opening chapters, Cervantes presents Quijote's preparations, including defining his noble steed Rocinante and choosing his love interest—an idealized woman he nicknames Dulcinea del Toboso—despite never having met her. The unfolding narrative highlights Quijote’s first forays into the world of adventure, filled with misguided confrontations and the comical consequences of his delusions. (This is an automatically generated summary.)"
+        ],
+        "authors": [
+          {
+            "id": 1,
+            "name": "Cervantes Saavedra, Miguel de",
+            "birthYear": 1547,
+            "deathYear": 1616
+          }
+        ],
+        "translators": [
+          {
+            "id": 2,
+            "name": "Győry, Vilmos",
+            "birthYear": 1838,
+            "deathYear": 1885
+          }
+        ],
+        "languages": ["hu"],
+        "formats": {
+          "image/jpeg": "https://www.gutenberg.org/cache/epub/66263/pg66263.cover.medium.jpg",
+          "application/epub+zip": "https://www.gutenberg.org/ebooks/66263.epub3.images"
+        },
+        "downloadCount": 443
+      },
+      {
+        "id": 3,
+        "title": "Meditaciones del Quijote",
+        "summaries": [
+          "“Meditaciones del Quijote” by José Ortega y Gasset is a philosophical treatise written in the early 20th century. The work consists of a series of essays that delve into the themes surrounding Miguel de Cervantes' \"Don Quijote\", exploring its deeper meanings, characters, and implications on Spanish identity and culture. Ortega y Gasset employs \"Don Quijote\" as a lens to critique contemporary Spanish society while expressing a yearning for a more profound cultural engagement.  The opening of this treatise introduces the author’s introspective approach, stating that these essays will reflect a connection between seemingly mundane topics and the broader cultural and historical circumstances of Spain. Ortega begins by sharing his thoughts on the intellectual love he feels toward his subjects, aiming to elevate ordinary experiences into matters of profound significance. He discusses the nature of understanding, the conflict between love and hate, and the cultural implications of these feelings, all while setting the stage for a deeper exploration of Cervantes’ work and its reflection on the Spanish psyche. The narrative balances philosophical inquiry with a passionate critique of Spain’s historical and contemporary issues, establishing a thoughtful framework for the essays to follow. (This is an automatically generated summary.)"
+        ],
+        "authors": [
+          {
+            "id": 3,
+            "name": "Ortega y Gasset, José",
+            "birthYear": 1883,
+            "deathYear": 1955
+          }
+        ],
+        "translators": [],
+        "languages": ["es"],
+        "formats": {
+          "image/jpeg": "https://www.gutenberg.org/cache/epub/57448/pg57448.cover.medium.jpg",
+          "application/epub+zip": "https://www.gutenberg.org/ebooks/57448.epub3.images"
+        },
+        "downloadCount": 369
+      },
+      {
+        "id": 4,
+        "title": "Vida de Don Quijote y Sancho",
+        "summaries": [
+          "\"Vida de Don Quijote y Sancho\" by Miguel de Unamuno is an interpretative commentary written in the early 20th century. This work reflects on Miguel de Cervantes's classic characters, Don Quijote and Sancho Panza, providing a new exegesis of their story and the philosophical implications that arise from their adventures. Unamuno seeks to delve deeper into the essence of these characters, presenting them through a modern lens while preserving their intrinsic qualities.  The opening of this work serves as an introduction, establishing Unamuno's intent to explore the characters beyond Cervantes's original narrative. He draws upon the rich literary tradition surrounding Don Quijote and the societal context of his time, emphasizing an ongoing relevance. Unamuno highlights the lack of conventional biographical details in Don Quijote's life and focuses instead on the profound themes of honor, madness, and the quest for eternal significance that define the character. The first chapter outlines Don Quijote's backstory, establishing him as an idealist whose reading of chivalric tales fuels his noble yet misguided aspirations, setting the stage for the ensuing adventures and introspective dialogues that characterize the rest of the text. (This is an automatically generated summary.)"
+        ],
+        "authors": [
+          {
+            "id": 4,
+            "name": "Unamuno, Miguel de",
+            "birthYear": 1864,
+            "deathYear": 1936
+          }
+        ],
+        "translators": [],
+        "languages": ["es"],
+        "formats": {
+          "image/jpeg": "https://www.gutenberg.org/cache/epub/75472/pg75472.cover.medium.jpg",
+          "application/epub+zip": "https://www.gutenberg.org/ebooks/75472.epub3.images"
+        },
+        "downloadCount": 364
+      },
+      {
+        "id": 5,
+        "title": "El Quijote apócrifo",
+        "summaries": [
+          "\"El Quijote apócrifo\" by Alonso Fernández de Avellaneda is a novel written in the early 17th century. This work is a continuation and parody of Miguel de Cervantes' celebrated story of Don Quixote, introducing new adventures for the infamous knight and his loyal squire, Sancho Panza. The narrative likely explores themes of chivalry, delusion, and the absurdity of pursuing ideals unattainable in a changing world, while following Don Quixote's comedic misadventures.  The opening of \"El Quijote apócrifo\" begins with a prologue that establishes its place as a sequel to Cervantes' original story. It introduces Don Quixote, who has been briefly restored to sanity after his previous exploits. However, the allure of knightly adventures proves too strong, and he soon dabbles in chivalric fantasies once again, seeking to impress a princess named Dulcinea del Toboso. In the narrative, Don Quixote encounters several characters, including his faithful squire Sancho Panza, who expresses skepticism about their pursuits. The dialogue reflects the humor and foibles of the characters, setting the tone for the ensuing adventures that blend comedy with commentary on literature and society. (This is an automatically generated summary.)"
+        ],
+        "authors": [
+          {
+            "id": 5,
+            "name": "Fernández de Avellaneda, Alonso",
+            "birthYear": null,
+            "deathYear": null
+          }
+        ],
+        "translators": [],
+        "languages": ["es"],
+        "formats": {
+          "image/jpeg": "https://www.gutenberg.org/cache/epub/60884/pg60884.cover.medium.jpg",
+          "application/epub+zip": "https://www.gutenberg.org/ebooks/60884.epub3.images"
+        },
+        "downloadCount": 353
+      },
+      {
+        "id": 6,
+        "title": "Mielevä hidalgo Don Quijote Manchalainen I",
+        "summaries": [
+          "\"Mielevä hidalgo Don Quijote Manchalainen I\" by Miguel de Cervantes Saavedra is a seminal novel written in the early 17th century. This literary work follows the adventures of Don Quijote, a nobleman who, driven mad by reading chivalric romances, decides to become a wandering knight and seeks out adventures in a quest for honor, justice, and love. The narrative intricately weaves themes of reality versus illusion, showcasing the absurdity and valor of human endeavor through the eyes of its eccentric protagonist.  The opening of the novel introduces us to a hidalgo from La Mancha who has become obsessed with knightly tales, leading to a breakdown of his sanity. Cervantes describes the hidalgo’s modest lifestyle and details his single-minded passion for reading, which eclipses his daily responsibilities, culminating in his decision to become a knight-errant. He sets about preparing for his new identity, engaging in a comical reimagining of his possessions into heroic armaments and creating elaborate plans for his upcoming adventures. In doing so, he also adopts a new name, Don Quijote, and selects his decrepit horse, Rocinante, as his noble steed, setting the stage for the whimsical and poignant journey that follows. (This is an automatically generated summary.)"
+        ],
+        "authors": [
+          {
+            "id": 1,
+            "name": "Cervantes Saavedra, Miguel de",
+            "birthYear": 1547,
+            "deathYear": 1616
+          }
+        ],
+        "translators": [
+          {
+            "id": 6,
+            "name": "Hollo, J. A. (Juho Aukusti)",
+            "birthYear": 1885,
+            "deathYear": 1967
+          }
+        ],
+        "languages": ["fi"],
+        "formats": {
+          "image/jpeg": "https://www.gutenberg.org/cache/epub/74133/pg74133.cover.medium.jpg",
+          "application/epub+zip": "https://www.gutenberg.org/ebooks/74133.epub3.images"
+        },
+        "downloadCount": 146
+      },
+      {
+        "id": 7,
+        "title": "El \"Tirant lo Blanch\" i \"D. Quijote de La Mancha\"",
+        "summaries": [
+          "\"El 'Tirant lo Blanch' i 'D. Quijote de La Mancha'\" by J. Givanel Mas is a scholarly publication written in the early 20th century. The book presents a critical examination of the influences between two seminal works of literature, exploring the connections and inspirations that exist between Miguel de Cervantes' \"Don Quijote\" and the earlier chivalric novel \"Tirant lo Blanch\" by Martí de Riquer. Through an analysis of various passages and characters, the work seeks to shed light on how these texts interact and inform each other within the context of their respective literary traditions.  The opening of this study outlines the current academic discourse surrounding \"Don Quijote,\" indicating a shift from purely celebratory analysis towards a search for the sources and influences that shaped Cervantes' work. Givanel Mas cites notable literary critics, referencing their arguments about the connections between \"Don Quijote\" and chivalric literature, particularly \"Tirant lo Blanch.\" The text highlights Cervantes' extensive reading and engagement with chivalric romances, suggesting that his representation of knightly adventures and characters in \"Don Quijote\" was significantly influenced by the earlier work, providing textual examples that illustrate both similarities and contrasts between the two narratives. (This is an automatically generated summary.)"
+        ],
+        "authors": [
+          {
+            "id": 7,
+            "name": "Givanel Mas, J. (Juan)",
+            "birthYear": 1868,
+            "deathYear": 1946
+          }
+        ],
+        "translators": [],
+        "languages": ["ca"],
+        "formats": {
+          "image/jpeg": "https://www.gutenberg.org/cache/epub/63871/pg63871.cover.medium.jpg",
+          "application/epub+zip": "https://www.gutenberg.org/ebooks/63871.epub3.images"
+        },
+        "downloadCount": 137
+      },
+      {
+        "id": 8,
+        "title": "Älykkään ritarin Don Quijote de la Manchan elämänvaiheet",
+        "summaries": [
+          "\"Älykkään ritarin Don Quijote de la Manchan elämänvaiheet\" by Miguel de Cervantes Saavedra is a classic novel written in the early 17th century. The story introduces the main character, Don Quijote, an aging nobleman who becomes so enamored with tales of chivalry that he decides to embark on an adventure as a wandering knight. This tale is rooted in themes of idealism versus reality and explores the nature of heroism and sanity.  The opening of the book presents Don Quijote as a man deeply affected by his reading of chivalric romances, to the point that he loses his sanity and decides to revive chivalry himself. He dons old armor, names his horse Rosinante, and adopts the name Don Quijote de la Mancha. Determined to seek adventures, he sets out on his first quest, but his path soon leads him to misunderstand ordinary occurrences as great challenges, such as mistaking windmills for giants. This hilarious and poignant beginning sets the tone for the absurd and adventurous life that awaits him as he pursues an idealistic vision of knighthood. (This is an automatically generated summary.)"
+        ],
+        "authors": [
+          {
+            "id": 1,
+            "name": "Cervantes Saavedra, Miguel de",
+            "birthYear": 1547,
+            "deathYear": 1616
+          }
+        ],
+        "translators": [
+          {
+            "id": 8,
+            "name": "Joutsen, O. A. (Otto Aleksanteri)",
+            "birthYear": 1878,
+            "deathYear": 1936
+          }
+        ],
+        "languages": ["fi"],
+        "formats": {},
+        "downloadCount": 129
+      },
+      {
+        "id": 9,
+        "title": "Mielevä hidalgo Don Quijote Manchalainen II:2",
+        "summaries": [
+          "\"Mielevä hidalgo Don Quijote Manchalainen II:2\" by Miguel de Cervantes Saavedra is a novel written in the early 17th century. This work is a part of the larger narrative surrounding the adventures of Don Quijote, a nobleman who embarks on a quest to revive chivalry, often accompanied by his faithful squire, Sancho Panza. The story explores themes of idealism versus reality and the nature of heroism through the misadventures of its eccentric characters.  At the start of the novel, we find ourselves engaged in a lively interplay between the haughty herttua (lord) and herttuatar (lady) as they decide to play tricks on Don Quijote and Sancho Panza utilizing the legends and stories that the knight has told them. Their scheme revolves around liberating the enchanted Dulcinea Tobosolana, a woman of great beauty that Don Quijote ardently loves but whose identity is more imagined than real. As the herttua sets out to enact their plan, comedic turns emerge when Don Quijote, despite facing real dangers, remains entirely caught up in his delusions of grandeur and bravery, while Sancho, ever the pragmatic foil, contemplates the absurdity of the knight's predicaments. This charming interplay sets the stage for further adventures and challenges that await the duo. (This is an automatically generated summary.)"
+        ],
+        "authors": [
+          {
+            "id": 1,
+            "name": "Cervantes Saavedra, Miguel de",
+            "birthYear": 1547,
+            "deathYear": 1616
+          }
+        ],
+        "translators": [
+          {
+            "id": 6,
+            "name": "Hollo, J. A. (Juho Aukusti)",
+            "birthYear": 1885,
+            "deathYear": 1967
+          }
+        ],
+        "languages": ["fi"],
+        "formats": {
+          "image/jpeg": "https://www.gutenberg.org/cache/epub/74204/pg74204.cover.medium.jpg",
+          "application/epub+zip": "https://www.gutenberg.org/ebooks/74204.epub3.images"
+        },
+        "downloadCount": 125
+      },
+      {
+        "id": 10,
+        "title": "Mielevä hidalgo Don Quijote Manchalainen II:1",
+        "summaries": [
+          "\"Mielevä hidalgo Don Quijote Manchalainen II:1\" by Miguel de Cervantes Saavedra is a novel written in the early 17th century. This literary work serves as a sequel to the original \"Don Quijote,\" further exploring the adventures and misadventures of the titular character, Don Quijote, and his loyal squire, Sancho Panza. The story delves into themes of chivalry, delusion, and the contrasts between reality and imagination.  The opening of the sequel reveals a reflective and engaging preface where the author addresses the readers and anticipates their reactions regarding the prior adventure of Don Quijote. It sets a thoughtful tone reflecting on the reception of Don Quijote’s exploits while hinting at the unfolding narrative that would involve discussions about reality and chivalrous ideals. The first chapter presents a conversation between Don Quijote, who appears to be in a delicate mental state, a priest, and a barber discussing his condition while revealing subtle comedic elements. They speculate about Don Quijote's health and prepare for his upcoming adventures, establishing the ongoing theme of delusion intertwined with humor that characterizes the series. (This is an automatically generated summary.)"
+        ],
+        "authors": [
+          {
+            "id": 1,
+            "name": "Cervantes Saavedra, Miguel de",
+            "birthYear": 1547,
+            "deathYear": 1616
+          }
+        ],
+        "translators": [
+          {
+            "id": 6,
+            "name": "Hollo, J. A. (Juho Aukusti)",
+            "birthYear": 1885,
+            "deathYear": 1967
+          }
+        ],
+        "languages": ["fi"],
+        "formats": {
+          "image/jpeg": "https://www.gutenberg.org/cache/epub/74194/pg74194.cover.medium.jpg",
+          "application/epub+zip": "https://www.gutenberg.org/ebooks/74194.epub3.images"
+        },
+        "downloadCount": 114
+      },
+      {
+        "id": 11,
+        "title": "Mielevä hidalgo Don Quijote Manchalainen I:2",
+        "summaries": [
+          "\"Mielevä hidalgo Don Quijote Manchalainen I:2\" by Miguel de Cervantes Saavedra is a classic novel written in the early 17th century. The book humorously chronicles the adventures of Don Quijote, a nobleman who, fueled by an obsession with chivalric romances, sets out on a quest to revive knighthood and protect the helpless. The narrative introduces a rich ensemble of characters and reflects on themes of idealism versus reality.  The opening of this installment sets the stage for a new adventure involving various characters, including the pained priest, the barber, and Don Quijote himself. It begins with a discussion of Don Quijote's noble intentions and a desire to restore chivalry, while also highlighting his eccentric habits and the folly that accompanies them. The arrival of a beautiful young woman unwittingly captured by Don Quijote's quests adds complexity to the narrative, as her story intertwines with the overarching themes of love, honor, and the absurdity of the knight's imaginings. In this way, the beginning introduces a mix of humor and social commentary, hinting at the rich storylines to unfold. (This is an automatically generated summary.)"
+        ],
+        "authors": [
+          {
+            "id": 1,
+            "name": "Cervantes Saavedra, Miguel de",
+            "birthYear": 1547,
+            "deathYear": 1616
+          }
+        ],
+        "translators": [
+          {
+            "id": 6,
+            "name": "Hollo, J. A. (Juho Aukusti)",
+            "birthYear": 1885,
+            "deathYear": 1967
+          }
+        ],
+        "languages": ["fi"],
+        "formats": {
+          "image/jpeg": "https://www.gutenberg.org/cache/epub/74169/pg74169.cover.medium.jpg",
+          "application/epub+zip": "https://www.gutenberg.org/ebooks/74169.epub3.images"
+        },
+        "downloadCount": 86
+      }
+    ]
+  }
+}
