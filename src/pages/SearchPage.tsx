@@ -1,13 +1,46 @@
-import { useState } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { BookCard, BookGrid, BookInfo } from "../components/books";
-import { Button, LoadingSpinner } from "../components/ui";
+import { Form } from "../components/form";
 import { Modal } from "../components/modals";
-import type { Book } from "../interfaces/book-response";
-import dataJson from "../data/dataAPI.json";
+import { Button, LoadingSpinner, MessageBlock } from "../components/ui";
+import type { BookFull, BooksByTitleResponse } from "../api/api";
+import { endpoints } from "../api/endpoints";
+import { fetchData } from "../utils";
 
 export const SearchPage = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [modalData, setModalData] = useState<Book>({} as Book);
+  const [modalData, setModalData] = useState<BookFull>({} as BookFull);
+
+  const [search, setSearch] = useState("");
+  const [data, setData] = useState<BooksByTitleResponse>({} as BooksByTitleResponse);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setErrorMessage(null);
+    setSearch(e.target.value);
+  };
+
+  const handleFormSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+
+    if (search.length < 3) {
+      setErrorMessage(null);
+      setData({} as BooksByTitleResponse);
+      setErrorMessage("El título no debe de ser menor a 3 caracteres");
+      return;
+    }
+
+    const title = encodeURIComponent(search.trim().toLowerCase());
+    const url = endpoints.books.SEARCH_BOOKS_BY_TITLE + title;
+
+    fetchData<BooksByTitleResponse>({
+      url,
+      setData,
+      setErrorMessage,
+      setIsLoading,
+    });
+  };
 
   return (
     <>
@@ -21,37 +54,37 @@ export const SearchPage = () => {
             Buscar libro por título
           </h2>
 
-          <form className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <Form onSubmit={handleFormSubmit}>
             <input
               type="text"
+              name="search"
+              value={search}
+              onChange={onChange}
               className="w-full max-w-md rounded-md border bg-white/70 px-4 py-2 outline-none"
             />
-            <Button>BUSCAR</Button>
-          </form>
+            <Button type="submit" disabled={isLoading}>
+              BUSCAR
+            </Button>
+          </Form>
 
-          {/* <LoadingSpinner /> */}
+          <MessageBlock errorMessage={errorMessage} data={data} />
 
-          {/* messages */}
-          <div className="flex justify-center gap-6 p-4">
-            {dataJson.messages.map(({ message }, id) => (
-              <span key={id} className="">
-                {message}
-              </span>
-            ))}
-          </div>
+          {isLoading && <LoadingSpinner />}
 
-          <BookGrid>
-            {dataJson.data.books.map((book) => (
-              <BookCard
-                key={book.id}
-                book={book}
-                onClick={() => {
-                  setIsDialogOpen(true);
-                  setModalData(book);
-                }}
-              />
-            ))}
-          </BookGrid>
+          {!isLoading && data?.data != null && (
+            <BookGrid>
+              {data?.data?.books?.map((book) => (
+                <BookCard
+                  key={book.id}
+                  book={book}
+                  onClick={() => {
+                    setIsDialogOpen(true);
+                    setModalData(book);
+                  }}
+                />
+              ))}
+            </BookGrid>
+          )}
         </div>
       </div>
     </>

@@ -25,7 +25,7 @@ export const MobileNavigation = ({ links, isOpen, onToggle }: Props) => {
         },
       )}
     >
-      <div className="mx-auto h-0 max-w-[1400px] border px-3 py-3">
+      <div className="mx-auto h-0 max-w-[1400px] px-3 py-3">
         <div className="flex h-14 items-center justify-end">
           <Hamburguer isOpen={isOpen} onToggle={onToggle} className="" />
         </div>

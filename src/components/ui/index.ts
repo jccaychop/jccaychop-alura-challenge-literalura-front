@@ -1,4 +1,5 @@
 import { Button } from "./Button";
 import { LoadingSpinner } from "./LoadingSpinner";
+import { MessageBlock } from "./MessageBlock";
 
-export { LoadingSpinner, Button };
+export { Button, LoadingSpinner, MessageBlock };

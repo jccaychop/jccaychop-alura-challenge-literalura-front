@@ -1,8 +1,8 @@
 import { BookInfoCover, BookInfoDesktop, BookInfoMobile } from "./";
-import type { Book } from "../../interfaces/book-response";
+import type { BookFull } from "../../api/api";
 
 interface Props {
-  data: Book;
+  data: BookFull;
 }
 
 export const BookInfo = ({ data }: Props) => {

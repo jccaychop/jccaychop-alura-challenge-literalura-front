@@ -1,22 +1,57 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
+
+type UseModalReturn = {
+  ref: React.RefObject<HTMLDivElement | null>;
+  isVisible: boolean;
+  shouldRender: boolean;
+  handleClose: () => void;
+};
 
 export const useModal = (
   isOpen: boolean,
   onClose: () => void,
-): React.RefObject<HTMLDivElement | null> => {
-  const modalRef = useRef<HTMLDivElement>(null);
+  fadeDuration = 300, // ms, ajustable
+): UseModalReturn => {
+  const ref = useRef<HTMLDivElement | null>(null);
 
-  // Cierre con tecla Escape o clic fuera del modal
+  const [shouldRender, setShouldRender] = useState(isOpen);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Cerrar modal con animación
+  const handleClose = useCallback(() => {
+    setIsVisible(false);
+    setTimeout(() => {
+      onClose();
+      setShouldRender(false);
+    }, fadeDuration);
+  }, [fadeDuration, onClose]);
+
+  // Mostrar modal y preparar animación
   useEffect(() => {
-    if (!isOpen) return;
+    if (isOpen) {
+      setShouldRender(true);
+      // Pequeño delay para disparar la animación fade-in después del render
+      setTimeout(() => setIsVisible(true), 20);
+    } else {
+      // Si el modal se cierra desde fuera, iniciar fade-out
+      if (shouldRender) {
+        setIsVisible(false);
+        setTimeout(() => setShouldRender(false), fadeDuration);
+      }
+    }
+  }, [isOpen, fadeDuration, shouldRender]);
+
+  // Manejo de cierre con tecla Escape o click fuera
+  useEffect(() => {
+    if (!shouldRender) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") handleClose();
     };
 
     const handleClickOutside = (e: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-        onClose();
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        handleClose();
       }
     };
 
@@ -27,22 +62,17 @@ export const useModal = (
       document.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isOpen, onClose]);
+  }, [handleClose, shouldRender]);
 
-  // Bloqueo de scroll del body
+  // Bloquear scroll body solo mientras modal está montado
   useEffect(() => {
-    const body = document.body;
-
-    if (isOpen) {
-      body.classList.add("overflow-hidden");
+    if (shouldRender) {
+      document.body.classList.add("overflow-hidden");
     } else {
-      body.classList.remove("overflow-hidden");
+      document.body.classList.remove("overflow-hidden");
     }
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [shouldRender]);
 
-    return () => {
-      body.classList.remove("overflow-hidden");
-    };
-  }, [isOpen]);
-
-  return modalRef;
+  return { ref, isVisible, shouldRender, handleClose };
 };

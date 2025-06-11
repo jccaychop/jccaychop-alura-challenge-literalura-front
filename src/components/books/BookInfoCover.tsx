@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { Formats } from "./../../interfaces/book-response";
+import type { Formats } from "../../api/api";
 import { coverNotAvailable } from "../../assets/img";
 
 type Props = {
@@ -15,6 +15,7 @@ export const BookInfoCover = ({ formats }: Props) => {
           src={
             formats["image/jpeg"] ? formats["image/jpeg"] : coverNotAvailable
           }
+          loading="lazy"
           alt="cover"
         />
       </div>

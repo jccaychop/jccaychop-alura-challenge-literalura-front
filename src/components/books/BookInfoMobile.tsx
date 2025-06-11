@@ -1,18 +1,16 @@
 import clsx from "clsx";
+import type { BookFull } from "../../api/api";
 import { ExpandableText } from "../text";
-import type { Book } from "../../interfaces/book-response";
 import { reverseText } from "../../utils";
-import langCodes from "../../data/languageCodes.json";
+import { languageCodes } from "../../constants";
 
 interface Props {
-  data: Book;
+  data: BookFull;
 }
 
 export const BookInfoMobile = ({ data }: Props) => {
   const { title, summaries, authors, translators, languages, downloadCount } =
     data;
-
-  const langCodesTyped = langCodes as { [key: string]: string };
 
   return (
     <dl className="space-y-4 lg:hidden">
@@ -53,7 +51,7 @@ export const BookInfoMobile = ({ data }: Props) => {
       <div>
         <dt className="font-bold text-gray-700">Idiomas</dt>
         <dd className="text-gray-900">
-          {languages.map((code) => langCodesTyped[code] ?? code).join(", ")}
+          {languages.map((code) => languageCodes[code] ?? code).join(", ")}
         </dd>
       </div>
 

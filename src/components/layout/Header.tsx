@@ -17,7 +17,7 @@ export const Header = () => {
           onToggle={onToggle}
         />
 
-        <div className="mx-auto max-w-[1400px] border px-3 py-3">
+        <div className="mx-auto max-w-[1400px] px-3 py-3">
           <div className="flex justify-between">
             <NavLink to="/" className="z-40 h-14">
               <LiteraluraLogo

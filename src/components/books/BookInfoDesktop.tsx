@@ -1,18 +1,16 @@
 import clsx from "clsx";
+import type { BookFull } from "../../api/api";
 import { ExpandableText } from "../text";
-import type { Book } from "../../interfaces/book-response";
 import { reverseText } from "../../utils";
-import langCodes from "../../data/languageCodes.json";
+import { languageCodes } from "../../constants";
 
 interface Props {
-  data: Book;
+  data: BookFull;
 }
 
 export const BookInfoDesktop = ({ data }: Props) => {
   const { title, summaries, authors, translators, languages, downloadCount } =
     data;
-
-  const langCodesTyped = langCodes as { [key: string]: string };
 
   return (
     <table className="hidden w-full table-auto border border-gray-300 text-left lg:table">
@@ -58,13 +56,13 @@ export const BookInfoDesktop = ({ data }: Props) => {
         <tr className="border-b">
           <th className="p-2 font-semibold text-gray-700">Idiomas</th>
           <td className="p-2">
-            {languages.map((code) => langCodesTyped[code] ?? code).join(", ")}
+            {languages.map((code) => languageCodes[code] ?? code).join(", ")}
           </td>
         </tr>
 
         <tr className="border-b">
           <th className="p-2 font-semibold text-gray-700">
-            Cantidad de Descarga
+            Total de descargas
           </th>
           <td className="p-2">{downloadCount}</td>
         </tr>

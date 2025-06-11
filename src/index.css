@@ -19,14 +19,27 @@
   body {
     @apply bg-old-lace font-poppins text-dark-charcoal;
   }
+
+  select,
+  ::picker(select) {
+    appearance: base-select;
+  }
 }
 
 @utility button {
-  @apply bg-hooker-green hover:bg-dark-slate-gray text-old-lace border-hooker-green cursor-pointer rounded-md border px-4 py-2 transition-colors duration-300 outline-none;
+  @apply bg-hooker-green hover:bg-dark-slate-gray text-old-lace border-hooker-green cursor-pointer rounded-md border px-4 py-2 tracking-widest transition-colors duration-300 outline-none;
 }
 
 @utility button-disabled {
-  @apply text-old-lace border-hooker-green cursor-not-allowed rounded-md border bg-gray-600 px-4 py-2 transition-colors duration-300 outline-none;
+  @apply text-old-lace border-hooker-green cursor-not-allowed rounded-md border bg-gray-600 px-4 py-2 tracking-widest transition-colors duration-300 outline-none;
+}
+
+@utility custom-select {
+  @apply w-full max-w-xs rounded-tl-md rounded-tr-md border bg-white/70 px-4 py-2 outline-none;
+}
+
+@utility custom-option {
+  @apply hover:bg-hooker-green checked:bg-hooker-green bg-white/70 py-1 checked:text-white hover:text-white;
 }
 
 @layer utilities {
@@ -36,6 +49,14 @@
     transition: height 0.8s ease;
     interpolate-size: allow-keywords;
   }
+
+  .expandable-text-title-book {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.8s ease;
+    interpolate-size: allow-keywords;
+  }
+
   .expandable-text.expanded {
     height: auto;
   }

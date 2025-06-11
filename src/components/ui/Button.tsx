@@ -3,15 +3,24 @@ import clsx from "clsx";
 type Props = {
   children: React.ReactNode;
   className?: string;
+  disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 };
 
-export const Button = ({ children, className }: Props) => {
+export const Button = ({
+  children,
+  className,
+  disabled = false,
+  type = "button",
+}: Props) => {
   return (
     <button
-      className={clsx(
-        "bg-hooker-green hover:bg-dark-slate-gray text-old-lace border-hooker-green cursor-pointer rounded-md border px-4 py-2 transition-colors duration-300 outline-none",
-        className,
-      )}
+      className={clsx(className, {
+        "button-disabled": disabled,
+        button: !disabled,
+      })}
+      type={type}
+      disabled={disabled}
     >
       {children}
     </button>
