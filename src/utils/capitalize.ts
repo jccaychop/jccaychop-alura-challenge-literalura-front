@@ -1,5 +1,4 @@
-export const capitalize = (text: string): string => {
-  if (!text) return "";
-  const trimmed = text.trim();
-  return trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
+export const capitalize = (text?: string): string => {
+  const safeText = text?.trim() ?? "";
+  return safeText.charAt(0).toUpperCase() + safeText.slice(1).toLowerCase();
 };

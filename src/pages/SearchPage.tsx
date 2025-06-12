@@ -1,27 +1,29 @@
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
+import type { BookFull, BooksByTitleResponse } from "../api/api";
+import { fetchData } from "../utils";
+import { endpoints } from "../api/endpoints";
+import { useForm } from "../hooks";
 import { BookCard, BookGrid, BookInfo } from "../components/books";
 import { Form } from "../components/form";
 import { Modal } from "../components/modals";
 import { Button, LoadingSpinner, MessageBlock } from "../components/ui";
-import type { BookFull, BooksByTitleResponse } from "../api/api";
-import { endpoints } from "../api/endpoints";
-import { fetchData } from "../utils";
+
+const formData = {
+  search: "",
+};
 
 export const SearchPage = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [modalData, setModalData] = useState<BookFull>({} as BookFull);
 
-  const [search, setSearch] = useState("");
-  const [data, setData] = useState<BooksByTitleResponse>({} as BooksByTitleResponse);
+  const { search, onInputChange } = useForm(formData);
+  const [data, setData] = useState<BooksByTitleResponse>(
+    {} as BooksByTitleResponse,
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setErrorMessage(null);
-    setSearch(e.target.value);
-  };
-
-  const handleFormSubmit = async (e: FormEvent) => {
+  const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
 
     if (search.length < 3) {
@@ -33,13 +35,7 @@ export const SearchPage = () => {
 
     const title = encodeURIComponent(search.trim().toLowerCase());
     const url = endpoints.books.SEARCH_BOOKS_BY_TITLE + title;
-
-    fetchData<BooksByTitleResponse>({
-      url,
-      setData,
-      setErrorMessage,
-      setIsLoading,
-    });
+    fetchData({ url, setData, setErrorMessage, setIsLoading });
   };
 
   return (
@@ -59,7 +55,7 @@ export const SearchPage = () => {
               type="text"
               name="search"
               value={search}
-              onChange={onChange}
+              onChange={onInputChange}
               className="w-full max-w-md rounded-md border bg-white/70 px-4 py-2 outline-none"
             />
             <Button type="submit" disabled={isLoading}>

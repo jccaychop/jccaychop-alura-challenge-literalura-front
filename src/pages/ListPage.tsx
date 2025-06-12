@@ -1,42 +1,43 @@
-import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import clsx from "clsx";
 import type {
   BookFull,
   LanguagesFromBooksResponse,
   ResponseUnion,
 } from "../api/api";
-import { Author, AuthorCard, AuthorTable } from "../components/authors";
-import { BookCard, BookGrid, BookInfo } from "../components/books";
-import { Form } from '../components/form';
-import { Modal } from "../components/modals";
-import { Button, LoadingSpinner, MessageBlock } from "../components/ui";
 import {
   apiEndpoints,
   options,
   OptionValues,
   type OptionValue,
 } from "../constants/options";
+import { Author, AuthorCard, AuthorTable } from "../components/authors";
+import { BookCard, BookGrid, BookInfo } from "../components/books";
+import { Form } from "../components/form";
+import { Modal } from "../components/modals";
+import { Button, LoadingSpinner, MessageBlock } from "../components/ui";
 import { languageCodes } from "../constants";
 import { fetchData } from "../utils";
 import { endpoints } from "../api/endpoints";
+import { useForm } from "../hooks";
+
+const formData = {
+  option: "",
+  optionLanguage: "",
+  year: new Date().getFullYear(),
+};
 
 export const ListPage = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [modalData, setModalData] = useState<BookFull>({} as BookFull);
 
+  const { option, optionLanguage, year, onInputChange } = useForm(formData);
+
   const [data, setData] = useState<ResponseUnion>({} as ResponseUnion);
-  const [languageAvailable, setLanguageAvailable] = useState<LanguagesFromBooksResponse>({} as LanguagesFromBooksResponse);
+  const [languageAvailable, setLanguageAvailable] =
+    useState<LanguagesFromBooksResponse>({} as LanguagesFromBooksResponse);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-
-  const [selectedOption, setSelectedOption] = useState<OptionValue>(OptionValues.EMPTY);
-
-  const [selectedLanguageOption, setSelectedLanguageOption] = useState<string>("");
-
-  // input year
-  const currentYear = new Date().getFullYear();
-  const [year, setYear] = useState<number | "">(currentYear);
-  const minYear = 100;
 
   useEffect(() => {
     const url = endpoints.books.LIST_AVAILABLE_LANGUAGES;
@@ -49,42 +50,38 @@ export const ListPage = () => {
     });
   }, []);
 
-  const handleChangeYear = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.valueAsNumber;
-    if (isNaN(value)) {
-      setYear("");
-    } else {
-      setYear(value);
-    }
-  };
-
-  const handleSelectOnChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(e.target.value as OptionValue);
+  useEffect(() => {
     setErrorMessage(null);
     setData({} as ResponseUnion);
-  };
+  }, [option]);
 
-  const handleSelectLanguageOnChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setSelectedLanguageOption(e.target.value);
+  useEffect(() => {
     setErrorMessage(null);
-  };
+  }, [optionLanguage]);
 
   const handleFormSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setErrorMessage(null);
 
-    if (selectedOption === OptionValues.EMPTY) return;
-
-    let url = apiEndpoints[selectedOption];
-
-    if (
-      selectedOption === OptionValues.LIST_LIVING_AUTHORS_WITH_BOOKS_BY_YEAR
-    ) {
-      url += year;
+    if (option === OptionValues.EMPTY) {
+      setErrorMessage("Seleccione una opción");
+      return;
     }
 
-    if (selectedOption === OptionValues.LIST_BOOKS_BY_LANGUAGE) {
-      url += selectedLanguageOption;
-      if (selectedLanguageOption === "") {
+    let url = apiEndpoints[option as OptionValue];
+
+    if (option === OptionValues.LIST_LIVING_AUTHORS_WITH_BOOKS_BY_YEAR) {
+      url += year;
+
+      if (typeof year !== "number" || isNaN(year)) {
+        url = "";
+        setErrorMessage("Año inválido");
+      }
+    }
+
+    if (option === OptionValues.LIST_BOOKS_BY_LANGUAGE) {
+      url += optionLanguage;
+      if (optionLanguage === "") {
         url = "";
         setErrorMessage("Seleccione un idioma");
       }
@@ -115,7 +112,7 @@ export const ListPage = () => {
               "flex flex-wrap items-center justify-center gap-4",
               {
                 "flex-col md:flex-row":
-                  selectedOption === OptionValues.LIST_BOOKS_BY_LANGUAGE,
+                  option === OptionValues.LIST_BOOKS_BY_LANGUAGE,
               },
             )}
             onSubmit={handleFormSubmit}
@@ -124,7 +121,8 @@ export const ListPage = () => {
               className="custom-select"
               id="select-option"
               name="option"
-              onChange={handleSelectOnChange}
+              value={option}
+              onChange={onInputChange}
             >
               {options.map(([value, label]) => (
                 <option className="custom-option" key={value} value={value}>
@@ -133,32 +131,32 @@ export const ListPage = () => {
               ))}
             </select>
 
-            {selectedOption ===
-              OptionValues.LIST_LIVING_AUTHORS_WITH_BOOKS_BY_YEAR && (
+            {option === OptionValues.LIST_LIVING_AUTHORS_WITH_BOOKS_BY_YEAR && (
               <input
                 className="w-full max-w-24 rounded-md border bg-white/70 px-4 py-2 outline-none"
                 id="year"
+                name="year"
                 type="number"
-                min={minYear}
-                max={currentYear}
+                max={new Date().getFullYear()}
                 value={year}
-                onChange={handleChangeYear}
+                onChange={onInputChange}
               />
             )}
 
-            {selectedOption === OptionValues.LIST_BOOKS_BY_LANGUAGE && (
+            {option === OptionValues.LIST_BOOKS_BY_LANGUAGE && (
               <select
                 className="custom-select"
                 id="select-language-option"
-                name="option-language"
-                onChange={handleSelectLanguageOnChange}
+                name="optionLanguage"
+                value={optionLanguage}
+                onChange={onInputChange}
               >
                 <option className="custom-option" value={OptionValues.EMPTY}>
                   Seleccione un idioma
                 </option>
                 {languageAvailable.data?.languages.map((lang) => (
                   <option className="custom-option" key={lang} value={lang}>
-                    {languageCodes[lang]}
+                    {languageCodes[lang] ?? lang}
                   </option>
                 ))}
               </select>
@@ -173,8 +171,8 @@ export const ListPage = () => {
 
           {isLoading && <LoadingSpinner />}
 
-          {(selectedOption === OptionValues.LIST_BOOKS ||
-            selectedOption === OptionValues.LIST_BOOKS_BY_LANGUAGE) &&
+          {(option === OptionValues.LIST_BOOKS ||
+            option === OptionValues.LIST_BOOKS_BY_LANGUAGE) &&
             !isLoading &&
             data?.data != null &&
             "books" in data.data && (
@@ -192,9 +190,8 @@ export const ListPage = () => {
               </BookGrid>
             )}
 
-          {(selectedOption === OptionValues.LIST_AUTHORS_WITH_BOOKS ||
-            selectedOption ===
-              OptionValues.LIST_LIVING_AUTHORS_WITH_BOOKS_BY_YEAR) &&
+          {(option === OptionValues.LIST_AUTHORS_WITH_BOOKS ||
+            option === OptionValues.LIST_LIVING_AUTHORS_WITH_BOOKS_BY_YEAR) &&
             !isLoading &&
             data?.data != null &&
             "authors" in data.data && (

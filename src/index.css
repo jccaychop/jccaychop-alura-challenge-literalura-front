@@ -60,4 +60,8 @@
   .expandable-text.expanded {
     height: auto;
   }
+
+  .expandable-text.not-available {
+    height: auto;
+  }
 }

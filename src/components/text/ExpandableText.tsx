@@ -2,21 +2,29 @@ import clsx from "clsx";
 import { useExpandableText } from "../../hooks";
 
 type Props = {
-  text: string;
+  text?: string;
   wordLimit?: number;
   className?: string;
 };
 
 export const ExpandableText = ({ text, wordLimit = 30, className }: Props) => {
+  const safeText = text?.trim() ?? "";
   const { expanded, toggle, isTruncatable, fullText } = useExpandableText(
-    text,
+    safeText,
     wordLimit,
   );
 
   return (
     <>
-      <div className={clsx("expandable-text", { expanded: expanded })}>
-        <p className={className}>{fullText}</p>
+      <div
+        className={clsx("expandable-text", {
+          expanded: expanded,
+          "not-available": fullText.length === 0,
+        })}
+      >
+        <p className={className}>
+          {fullText === "" ? "Not available" : fullText}
+        </p>
       </div>
 
       {isTruncatable && (

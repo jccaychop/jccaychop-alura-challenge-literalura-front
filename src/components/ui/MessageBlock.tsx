@@ -17,7 +17,8 @@ export const MessageBlock = ({ errorMessage, data }: Props) => {
     <div
       className={clsx("", {
         "bg-fire-opal/60 mx-auto mt-8 max-w-2xl p-7": isError,
-        "flex justify-center gap-6 p-4": isSuccess,
+        "flex flex-col flex-wrap justify-center gap-x-6 gap-y-2 p-4 sm:flex-row":
+          isSuccess,
       })}
     >
       {messages.map((message, idx) => (
