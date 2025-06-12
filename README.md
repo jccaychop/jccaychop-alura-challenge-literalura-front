@@ -4,6 +4,11 @@
 
 **Literalura** es una plataforma desarrollada como parte del **Alura Challenge - Oracle ONE**, que permite a los usuarios explorar libros clásicos de literatura, gestionar búsquedas, autores y libros favoritos.
 
+**PROYECTO FRONTED ONLINE**
+
+Proyecto alojado en Vercel [ONLINE](https://jccaychop-alura-challenge-literalur.vercel.app/)
+Tener en cuenta que es un servicio gratuito.
+
 ![alt text](./img/image-1.png)
 ![alt text](./img/image-3.png)
 ![alt text](./img/image-2.png)
@@ -24,7 +29,8 @@ Puedes ver el repositorio del backend aquí:
 👉 [jccaychop-alura-challenge-literalura-back](https://github.com/jccaychop/jccaychop-alura-challenge-literalura-back)
 
 **PROYECTO BACKEND ONLINE**
-Proyecto alojado en [Render.com](https://jccaychop-alura-challenge-literalura-back.onrender.com/)
+
+Proyecto alojado en RENDER [ONLINE](https://jccaychop-alura-challenge-literalura-back.onrender.com/)
 
 Tener en cuenta que es un servicio gratuito, la aplicacion pasa a inactividad y toma su tiempo en volver a estar en servicio.
 
